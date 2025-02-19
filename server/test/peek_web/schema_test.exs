@@ -37,22 +37,20 @@ defmodule PeekWeb.SchemaTest do
            }
   end
 
-  @mutation """
-  mutation CreateBooking {
-    create_booking(first_name: "John", last_name: "Doe", event_id: "1") {
-      id
-      first_name
-      last_name
-      event_id
-    }
-  }
-  """
-
   test "returns accepted booking", context do
     %{conn: conn, event: event} = context
-    conn = post(conn, "/api", %{query: @mutation})
-    event_id = event.id
-
+    event_id = to_string(event.id)
+    mutation = """
+    mutation CreateBooking {
+      create_booking(first_name: "John", last_name: "Doe", event_id: "#{event_id}") {
+        id
+        first_name
+        last_name
+        event_id
+      }
+    }
+    """
+    conn = post(conn, "/api", %{query: mutation})
 
     assert %{
            "data" => %{

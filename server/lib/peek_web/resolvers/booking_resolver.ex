@@ -3,6 +3,8 @@ defmodule PeekWeb.Resolvers.BookingResolver do
   alias Peek.Events
 
   def create_booking(_, %{first_name: first_name, last_name: last_name, event_id: event_id}, _) do
+    event_id = String.to_integer(event_id)  # Ensure correct type
+    
     case Events.get_event(event_id) do
       nil -> 
         # Event not found
