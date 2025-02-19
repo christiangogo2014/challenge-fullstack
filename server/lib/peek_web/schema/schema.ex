@@ -20,6 +20,19 @@ defmodule PeekWeb.Schema.Schema do
   end
 
   #
+  # Mutations
+  #
+  mutation do
+    field :create_booking, :booking do
+      arg :first_name, non_null(:string)
+      arg :last_name, non_null(:string)
+      arg :event_id, non_null(:id)
+
+      resolve &BookingResolver.create_booking/3
+    end
+  end
+
+  #
   # Event Object
   #
   object :event do
@@ -35,8 +48,10 @@ defmodule PeekWeb.Schema.Schema do
   # Booking Object
   #
   object :booking do
+    field :id, non_null(:id)
     field :first_name, non_null(:string)
     field :last_name, non_null(:string)
+    field :event_id, non_null(:id)
   end
 
 end
