@@ -1,1 +1,66 @@
+<div class="flex space-x-2 mb-4">
+  <button
+    {{on "click" (fn this.switchView "timeGridDay")}}
+    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+  >
+    Day View
+  </button>
+
+  <button
+    {{on "click" (fn this.switchView "dayGridMonth")}}
+    class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
+  >
+    Month View
+  </button>
+</div>
+
 <div {{did-insert this.setupCalendar}}></div>
+
+{{#if this.showBookingForm}}
+  <div class="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-lg p-6">
+      <h2 class="text-2xl font-semibold text-center mb-4">Create a Booking</h2>
+      <form {{on "submit" this.submitBooking}} class="space-y-4">
+        <div>
+          <label for="first_name" class="block text-sm font-medium text-gray-700">First Name</label>
+          <input
+            type="text"
+            id="first_name"
+            value={{this.bookingDetails.first_name}}
+            {{on "input" (fn this.updateBookingDetails "first_name")}}
+            required
+            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          />
+        </div>
+
+        <div>
+          <label for="last_name" class="block text-sm font-medium text-gray-700">Last Name</label>
+          <input
+            type="text"
+            id="last_name"
+            value={{this.bookingDetails.last_name}}
+            {{on "input" (fn this.updateBookingDetails "last_name")}}
+            required
+            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          />
+        </div>
+
+        <div class="flex justify-between items-center mt-4">
+          <button
+            type="submit"
+            class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          >
+            Submit Booking
+          </button>
+          <button
+            type="button"
+            {{on "click" this.cancelBooking}}
+            class="bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+{{/if}}
