@@ -4,6 +4,8 @@ services:
   phoenix:
     build:
       context: .
+    volumes:
+      - .:/app
     environment:
       PGUSER: postgres
       PGPASSWORD: postgres
