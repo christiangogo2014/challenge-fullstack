@@ -2,11 +2,10 @@
 <div>
   <div>
     <h2 class="text-center">
-      Welcome sup4 peek team 😎✈️🚀..
+      Welcome sup4 peek.com team 😎✈️🚀..
     </h2>
   </div>
-  {{#each @model as |item|}}
-    {{item.id}}-{{item.title}}-{{item.start}}<br />
-  {{/each}}
+
+  <Calendar @events={{@model}} />
 </div>
 {{outlet}}

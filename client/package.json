@@ -29,6 +29,7 @@
     "@babel/eslint-parser": "^7.23.3",
     "@babel/plugin-proposal-decorators": "^7.23.7",
     "@ember/optional-features": "^2.0.0",
+    "@ember/render-modifiers": "^2.1.0",
     "@ember/string": "^3.1.1",
     "@ember/test-helpers": "^3.2.1",
     "@glimmer/component": "^1.1.2",
@@ -78,5 +79,11 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "@fullcalendar/core": "^6.1.15",
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/interaction": "^6.1.15",
+    "@fullcalendar/timegrid": "^6.1.15"
   }
 }
