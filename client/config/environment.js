@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 module.exports = function (environment) {
   const ENV = {
@@ -11,10 +11,10 @@ module.exports = function (environment) {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
-      }
+      },
     },
     apollo: {
-      apiURL: 'http://localhost:4000/api'
+      apiURL: 'http://localhost:4000/api',
       // Optionally, set the credentials property of the Fetch Request interface
       // to control when a cookie is sent:
       // requestCredentials: 'same-origin', // other choices: 'include', 'omit'
@@ -23,8 +23,8 @@ module.exports = function (environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
-  }
+    },
+  };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
@@ -36,19 +36,19 @@ module.exports = function (environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.locationType = 'none'
+    ENV.locationType = 'none';
 
     // keep test console output quieter
-    ENV.APP.LOG_ACTIVE_GENERATION = false
-    ENV.APP.LOG_VIEW_LOOKUPS = false
+    ENV.APP.LOG_ACTIVE_GENERATION = false;
+    ENV.APP.LOG_VIEW_LOOKUPS = false;
 
-    ENV.APP.rootElement = '#ember-testing'
-    ENV.APP.autoboot = false
+    ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.autoboot = false;
   }
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
   }
 
-  return ENV
-}
+  return ENV;
+};

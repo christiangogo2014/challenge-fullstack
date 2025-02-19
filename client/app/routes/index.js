@@ -1,14 +1,14 @@
-import Route from '@ember/routing/route'
-import { inject as service } from '@ember/service'
+import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
 export default class IndexRoute extends Route {
   @service
-  apolloService
+  apolloService;
 
-  beforeModel () {}
+  beforeModel() {}
 
-  async model (params) {
-    const model = await this.apolloService.fetchAllEvents()
-    return model
+  async model(params) {
+    const model = await this.apolloService.fetchAllEvents();
+    return model;
   }
 }
