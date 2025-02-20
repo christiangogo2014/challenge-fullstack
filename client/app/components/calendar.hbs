@@ -48,7 +48,7 @@
         <div class="flex justify-between items-center mt-4">
           <button
             type="button"
-            {{on "click" this.cancelBooking}}
+            {{on "click" this.cancelModals}}
             class="bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400"
           >
             Cancel
@@ -62,6 +62,37 @@
 
         </div>
       </form>
+    </div>
+  </div>
+{{/if}}
+
+<!-- Bookings Modal -->
+{{#if this.showBookingsModal}}
+  <div class="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-lg p-6">
+      <h2 class="text-2xl font-semibold text-center mb-4">Bookings for Event</h2>
+      <ul>
+        {{#each this.bookings as |booking|}}
+          <li class="mb-2">
+            <strong>{{booking.first_name}} {{booking.last_name}}</strong> (Event ID: {{booking.event_id}})
+          </li>
+        {{/each}}
+      </ul>
+      <div class="flex justify-end mt-4">
+        <button
+            type="button"
+            {{on "click" this.cancelModals}}
+            class="bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400"
+          >
+            Cancel
+        </button>
+        <button
+          {{on "click" this.openBookingForm}}
+          class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+        >
+          Add Booking
+        </button>
+      </div>
     </div>
   </div>
 {{/if}}

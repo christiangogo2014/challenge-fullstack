@@ -1,0 +1,8 @@
+query GetBookingsByEventId($event_id: ID!) {
+  get_bookings_by_event_id(event_id: $event_id) {
+    id
+    first_name
+    last_name
+    event_id
+  }
+}
