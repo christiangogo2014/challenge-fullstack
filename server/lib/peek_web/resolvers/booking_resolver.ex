@@ -20,8 +20,7 @@ defmodule PeekWeb.Resolvers.BookingResolver do
     end
   end
 
-  def get_bookings(_, _, _) do
-    # TODO
-    {:ok, nil}
+  def get_bookings(_, %{event_id: event_id}, _) do
+    Bookings.get_bookings(event_id)
   end
 end

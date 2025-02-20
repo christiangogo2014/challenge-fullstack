@@ -17,6 +17,12 @@ defmodule PeekWeb.Schema.Schema do
     field :events, list_of(:event) do
       resolve(&EventResolver.events/3)
     end
+
+    @desc "Get a list of bookings by a given event_id"
+    field :get_bookings_by_event_id, list_of(:booking) do
+      arg :event_id, non_null(:id)
+      resolve(&BookingResolver.get_bookings/3)
+    end
   end
 
   #
