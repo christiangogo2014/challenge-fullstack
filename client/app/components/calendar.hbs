@@ -1,14 +1,12 @@
 <div class="flex space-x-2 mb-4">
   <button
-    {{on "click" (fn this.switchView "timeGridDay")}}
-    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" type="button" {{on "click" (fn this.switchView "timeGridDay")}}
   >
     Day View
   </button>
 
   <button
-    {{on "click" (fn this.switchView "dayGridMonth")}}
-    class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
+    class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600" type="button" {{on "click" (fn this.switchView "dayGridMonth")}}
   >
     Month View
   </button>
@@ -66,7 +64,7 @@
   </div>
 {{/if}}
 
-<!-- Bookings Modal -->
+{{!-- Bookings Modal --}}
 {{#if this.showBookingsModal}}
   <div class="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
     <div class="bg-white rounded-lg shadow-lg w-full max-w-lg p-6">
@@ -87,8 +85,7 @@
             Cancel
         </button>
         <button
-          {{on "click" this.openBookingForm}}
-          class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+          class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" type="button" {{on "click" this.openBookingForm}}
         >
           Add Booking
         </button>
