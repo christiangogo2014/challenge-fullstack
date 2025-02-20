@@ -65,10 +65,9 @@ export default class CalendarComponent extends Component {
         },
       });
 
-      let newBooking = response.createBooking; // Get the created booking from the response
+      let newBooking = response; 
       console.log("New Booking Created:", newBooking);
 
-      // Reset form after successful submission
       this.showBookingForm = false;
       this.bookingDetails = { first_name: "", last_name: "", event_id: null };
     } catch (error) {

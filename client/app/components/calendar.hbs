@@ -47,18 +47,19 @@
 
         <div class="flex justify-between items-center mt-4">
           <button
-            type="submit"
-            class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          >
-            Submit Booking
-          </button>
-          <button
             type="button"
             {{on "click" this.cancelBooking}}
             class="bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400"
           >
             Cancel
           </button>
+          <button
+            type="submit"
+            class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          >
+            Submit Booking
+          </button>
+
         </div>
       </form>
     </div>
